@@ -164,19 +164,19 @@ const LogHistory = () => {
         <div className="flex gap-2">
           <button
             onClick={() => setSelectedRange('today')}
-            className={`px-3 py-1 rounded-md transition-colors cursor-pointer duration-300 ${selectedRange === 'today' ? 'dark:bg-dark-accent bg-light-accent text-light-text-secondary dark:text-dark-text-secondary' : 'border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary'}`}
+            className={`px-3 py-1 rounded-md transition-colors cursor-pointer touch-manipulation duration-300 ${selectedRange === 'today' ? 'dark:bg-dark-accent bg-light-accent text-light-text-secondary dark:text-dark-text-secondary' : 'border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary'}`}
           >
             Today
           </button>
           <button
             onClick={() => setSelectedRange('week')}
-            className={`px-3 py-1 rounded-md transition-colors cursor-pointer duration-300 ${selectedRange === 'week' ? 'dark:bg-dark-accent bg-light-accent text-light-text-secondary dark:text-dark-text-secondary' : 'border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary'}`}
+            className={`px-3 py-1 rounded-md transition-colors cursor-pointer touch-manipulation duration-300 ${selectedRange === 'week' ? 'dark:bg-dark-accent bg-light-accent text-light-text-secondary dark:text-dark-text-secondary' : 'border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary'}`}
           >
             This Week
           </button>
           <button
             onClick={() => setSelectedRange('all')}
-            className={`px-3 py-1 rounded-md transition-colors cursor-pointer duration-300 ${selectedRange === 'all' ? 'dark:bg-dark-accent bg-light-accent text-light-text-secondary dark:text-dark-text-secondary' : 'border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary'}`}
+            className={`px-3 py-1 rounded-md transition-colors cursor-pointer touch-manipulation duration-300 ${selectedRange === 'all' ? 'dark:bg-dark-accent bg-light-accent text-light-text-secondary dark:text-dark-text-secondary' : 'border border-light-border dark:border-dark-border text-light-text-primary dark:text-dark-text-primary'}`}
           >
             All Time
           </button>
@@ -190,8 +190,8 @@ const LogHistory = () => {
             className="px-3 py-1 border rounded-md border-light-border dark:border-dark-border bg-white text-light-text-secondary dark:text-dark-text-secondary dark:bg-darkbg text-sm"
           />
           <button 
-          onClick={handleSync}
-          className="px-3 py-1 bg-light-accent cursor-pointer dark:bg-dark-accent text-light-text-primary dark:text-dark-text-primary rounded-md hover:opacity-90">
+            onClick={handleSync}
+            className="px-3 py-1 bg-light-accent cursor-pointer touch-manipulation dark:bg-dark-accent text-light-text-primary dark:text-dark-text-primary rounded-md hover:opacity-90">
             Sync Logs
           </button>
         </div>
