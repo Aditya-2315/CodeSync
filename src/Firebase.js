@@ -19,13 +19,6 @@ const firebaseConfig = {
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
-  //  apiKey: "AIzaSyBc3xq8bP8ZkoQl3Am-FECIypfQ5hOYoEg",
-  // authDomain: "codesync-83ab6.firebaseapp.com",
-  // projectId: "codesync-83ab6",
-  // storageBucket: "codesync-83ab6.firebasestorage.app",
-  // messagingSenderId: "94262791614",
-  // appId: "1:94262791614:web:ae4f58b10d4744efe3bdef",
-  // measurementId: "G-76XDNF5JC3"
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
