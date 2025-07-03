@@ -12,7 +12,6 @@ export const resetSyncedLogs = async(uid,platform)=>{
 
             return entry.source === 'manual' || entry.platform?.toLowerCase() !== platform.toLowerCase()
         });
-        console.log('🧹 Filtering logs for:', platform);
         if(filtered.length){
             cleanLog[date] = filtered
         }

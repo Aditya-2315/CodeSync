@@ -89,7 +89,7 @@ useEffect(() => {
 }, [fetchStreakAndStats, location.pathname]);
 
   return (
-    <div className="px-10 py-4 space-y-6">
+    <div className="px-4 sm:px-6 md:px-10 py-4 space-y-6 overflow-y-auto h-[calc(100vh-64px)]">
       {/* Greeting and Streak Summary */}
       <section className="bg-light-surface dark:bg-dark-surface p-4 rounded-xl shadow">
         <h1 className="text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">
@@ -144,7 +144,7 @@ useEffect(() => {
         </div>
         <div className="bg-light-surface dark:bg-dark-surface p-4 rounded-xl shadow col-span-1 sm:col-span-2 lg:col-span-3">
           <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">All Time Summary</p>
-          <div className="flex gap-6 mt-2 text-light-text-primary dark:text-dark-text-primary">
+          <div className="flex flex-col sm:flex-row gap-4 mt-2 text-light-text-primary dark:text-dark-text-primary">
             <p>🧠 Problems Solved: <span className="font-bold">{lifetimeStats.problems}</span></p>
             <p>🔧 Commits: <span className="font-bold">{lifetimeStats.commits}</span></p>
           </div>
@@ -162,33 +162,33 @@ useEffect(() => {
             Sync Now
           </button>
         </div>
-        <div >
-
-        
-        <CalendarHeatmap
-          startDate={new Date(new Date().setDate(new Date().getDate() - 180))}
-          endDate={new Date()}
-          values={heatmapData}
-          showWeekdayLabels={false}
-          classForValue={value => {
-            if (!value || value.count === 0) return 'color-empty';
-            if (value.count >= 6) return 'color-scale-4';
-            if (value.count >= 4) return 'color-scale-3';
-            if (value.count >= 2) return 'color-scale-2';
-            return 'color-scale-1';
-          }}
-          tooltipDataAttrs={value => {
-            if (!value?.date) return { 'data-tooltip-id': 'heatmap-tooltip', 'data-tooltip-content': 'No activity' };
-            const date = new Date(value.date);
-            const formattedDate = date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
-            return {
-              'data-tooltip-id': 'heatmap-tooltip',
-              'data-tooltip-content': `${formattedDate} — ${value.count ?? 0} contribution${value.count === 1 ? '' : 's'}`
-            };
-          }}
-        />
-        <ReactTooltip id="heatmap-tooltip" />
+        <div className="overflow-x-auto">
+          <div className="min-w-[500px]">
+            <CalendarHeatmap
+              startDate={new Date(new Date().setDate(new Date().getDate() - 180))}
+              endDate={new Date()}
+              values={heatmapData}
+              showWeekdayLabels={false}
+              classForValue={value => {
+                if (!value || value.count === 0) return 'color-empty';
+                if (value.count >= 6) return 'color-scale-4';
+                if (value.count >= 4) return 'color-scale-3';
+                if (value.count >= 2) return 'color-scale-2';
+                return 'color-scale-1';
+              }}
+              tooltipDataAttrs={value => {
+                if (!value?.date) return { 'data-tooltip-id': 'heatmap-tooltip', 'data-tooltip-content': 'No activity' };
+                const date = new Date(value.date);
+                const formattedDate = date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+                return {
+                  'data-tooltip-id': 'heatmap-tooltip',
+                  'data-tooltip-content': `${formattedDate} — ${value.count ?? 0} contribution${value.count === 1 ? '' : 's'}`
+                };
+              }}
+            />
+          </div>
         </div>
+        <ReactTooltip id="heatmap-tooltip" />
         <div className="mt-4 flex items-center gap-2 text-xs text-light-text-secondary dark:text-dark-text-secondary">
           <span className="">Less</span>
           <span className="w-4 h-4 rounded-sm bg-[color:theme('colors.gray.200')] dark:bg-[color:theme('colors.dark.border')]"></span>
@@ -235,7 +235,7 @@ useEffect(() => {
 
 
       <section className="bg-light-surface dark:bg-dark-surface p-4 rounded-xl shadow">
-        <ul className="text-light-text-primary dark:text-dark-text-primary flex gap-4 flex-wrap">
+        <ul className="text-light-text-primary dark:text-dark-text-primary flex flex-col sm:flex-row gap-4">
           <li ><Link className="py-2 px-3 bg-light-accent dark:bg-dark-accent rounded-lg hover:bg-light-hover-accent dark:hover:bg-dark-hover-accent" to='/log-history'>Add a log</Link></li>
           <li ><Link className="py-2 px-3 bg-light-accent dark:bg-dark-accent rounded-lg hover:bg-light-hover-accent dark:hover:bg-dark-hover-accent" to='/stats'>Check Stats</Link></li>
           <li ><Link className="py-2 px-3 bg-light-accent dark:bg-dark-accent rounded-lg hover:bg-light-hover-accent dark:hover:bg-dark-hover-accent" to='/setting'>Add Platform to track</Link></li>

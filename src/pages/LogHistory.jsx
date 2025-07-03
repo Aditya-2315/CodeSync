@@ -127,7 +127,7 @@ const LogHistory = () => {
     }
   }
   return (
-    <div className="p-4 flex flex-col space-y-6">
+    <div className="p-4 flex flex-col touch-manipulation space-y-6">
       <h1 className="text-2xl self-center font-semibold text-light-text-primary dark:text-dark-text-primary">
         Log History
       </h1>

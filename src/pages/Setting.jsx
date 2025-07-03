@@ -210,7 +210,7 @@ const Setting = () => {
     }
   };
   return (
-    <div className="max-w-2xl p-4 flex  flex-col space-y-6">
+    <div className="max-w-2xl p-4 mx-auto flex md:max-w-full  flex-col gap-6">
       <h1 className=" text-light-text-primary self-center dark:text-dark-text-primary text-4xl">Setting</h1>
 
       <div className=" bg-light-bg border border-light-border dark:border-light-border dark:bg-dark-surface rounded-xl p-4 shadow-2xs shadow-light-accent dark:shadow-dark-accent">
@@ -297,23 +297,26 @@ const Setting = () => {
         </div>
          <div className="bg-light-surface border shadow-light-accent dark:shadow-dark-accent border-light-text-secondary dark:border-dark-text-secondary dark:bg-dark-surface rounded-xl p-4 shadow-2xs space-y-2">
         <p className="text-base text-light-text-primary dark:text-dark-text-primary font-medium mb-2">Track Platforms</p>
-        <div className="space-y-4">
+        <div className="space-y-4 touch-manipulation">
          {Object.keys(platforms).map(platform=>(
-          <div key = {platform} className="space-y-1 flex gap-3 text-light-text-secondary dark:text-dark-text-secondary">
+          <div key={platform} className="space-y-2 text-light-text-secondary dark:text-dark-text-secondary border-b border-light-border dark:border-dark-border pb-4">
             <label className="flex items-center space-x-2">
-              <input 
-              checked={platforms[platform]}
-              onChange={()=> handlePlatformChange(platform)}
-              className=" accent-light-accent dark:accent-dark-accent"
-              type="checkbox" />
+              <input
+                checked={platforms[platform]}
+                onChange={() => handlePlatformChange(platform)}
+                onTouchStart={() => handlePlatformChange(platform)}
+                onClick={(e) => e.stopPropagation()}
+                className="accent-light-accent dark:accent-dark-accent touch-optimized w-5 h-5"
+                type="checkbox"
+              />
               <span>{platform}</span>
             </label>
             {platforms[platform] && (
-              <div className="flex gap-4 items-center">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                 <input
                   value={usernames[platform] || ''}
                   placeholder={`username / URL`}
-                  className="w-full px-3 py-1 border border-light-border dark:border-dark-border rounded-lg"
+                  className="w-full sm:w-auto px-3 py-1 border border-light-border dark:border-dark-border rounded-lg"
                   onChange={(e) =>
                     setUsernames((prev) => ({ ...prev, [platform]: e.target.value }))
                   }
