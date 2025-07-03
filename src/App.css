@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.react-calendar-heatmap {
+  line-height: 1 !important;
+}
+
+.react-calendar-heatmap .react-calendar-heatmap__rect {
+  height: 12px;
+  width: 12px;
+  rx: 2;
+  ry: 2;
+}
+.color-empty {
+  @apply fill-light-border dark:fill-dark-border;
+}
+
+.color-scale-1 {
+  @apply fill-green-300;
+}
+.color-scale-2 {
+  @apply fill-green-500;
+}
+.color-scale-3 {
+  @apply fill-green-700;
+}
+.color-scale-4 {
+  @apply fill-green-900;
+}
+
+@theme{
+    --color-darkbg:#1e2235;
+    --color-light-bg:#f9fafb;
+    --color-sidebar-dark:#2a2f45;
+    --color-sidebar-light:#f1f5f9;
+    --color-dark-accent:#635dff;
+    --color-dark-hover-accent:#8a85ff;
+    --color-light-accent:#76d7c4;
+    --color-light-hover-accent:#48c9b0;
+    --color-dark-text-primary:#f1f5f9;
+    --color-dark-text-secondary:#94a3b8;
+    --color-light-text-primary:#1e293b;
+    --color-light-text-secondary:#64748b;
+    --color-dark-success:#10b981;
+    --color-dark-warning:#f97316;
+    --color-dark-error:#ef4444;
+    --color-dark-border:#3b4252;
+    --color-light-success:#10b981;
+    --color-light-warning:#f59e0b;
+    --color-light-error:#dc2626;
+    --color-light-border:#a1a1a1;
+    --color-dark-text:#f1f5f9;
+    --color-dark-surface:#272b3a;
+    --color-light-surface:#ffffff;
+
+}
+
+.react-calendar-heatmap text {
+  font-size: 0; /* Hide default labels */
+}
+
+.react-calendar-heatmap .day {
+  width: 8px !important;
+  height: 8px !important;
+  rx: 2 !important;
+  ry: 2 !important;
+}
