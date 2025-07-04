@@ -48,6 +48,7 @@ const Sidebar = () => {
           border-r border-light-border dark:border-dark-border
           transform transition-transform duration-300 ease-in-out justify-evenly flex flex-col
           ${open ? 'translate-x-0' : '-translate-x-full'}
+          ${!open ? 'pointer-events-none' : 'pointer-events-auto'} 
           md:translate-x-0 md:static md:flex-shrink-0
         `}
       >
