@@ -84,6 +84,13 @@ CodeSync is a powerful developer dashboard built to help you **track, visualize,
 
 ---
 
+## 📸 Demo Preview
+
+`https://codesync-83ab6.web.app/`
+
+
+---
+
 ## 📦 Installation
 
 ```bash
