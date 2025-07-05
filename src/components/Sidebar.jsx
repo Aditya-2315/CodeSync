@@ -44,8 +44,8 @@ const Sidebar = () => {
       {/* Sidebar container */}
       <aside
         className={`
-          ${open ? 'block' : 'hidden'}
-          fixed top-0 left-0 h-screen w-64 z-50 bg-light-surface dark:bg-dark-surface
+          ${open ? 'block z-50' : 'hidden'}
+          fixed top-0 left-0 h-screen w-64  bg-light-surface dark:bg-dark-surface
           border-r border-light-border dark:border-dark-border
           transform transition-transform duration-300 ease-in-out justify-evenly flex flex-col
           md:block md:translate-x-0 md:static md:flex-shrink-0
