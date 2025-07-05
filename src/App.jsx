@@ -6,15 +6,21 @@ import './App.css'
 import {easeInOut, motion} from 'motion/react'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react'
 
 
 
 function App() {
   const { user } = useAuth();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="relative text-text dark:bg-darkbg transition-colors duration-300">
       {/* Sidebar (visible only if logged in) */}
-      {user && <Sidebar />}
+      {user && (
+        <div className={`${sidebarOpen ? 'fixed' : 'hidden'} top-0 left-0 w-64 h-screen z-50`}>
+          <Sidebar open={sidebarOpen} setOpen={setSidebarOpen}/>
+        </div>
+      )}
 
       <ToastContainer position="bottom-right" autoClose={3000} />
 
@@ -24,9 +30,7 @@ function App() {
 
       {/* Main content */}
       <motion.main
-        className={`min-h-screen overflow-y-auto px-4 bg-light-bg dark:bg-darkbg transition-all duration-300 ${
-          user ? "md:ml-64" : ""
-        }`}>
+        className={`h-screen overflow-y-auto px-4 bg-light-bg dark:bg-darkbg ${user ? "md:ml-64" : "w-screen"}`}>
         <Outlet />
       </motion.main>
     </div>
