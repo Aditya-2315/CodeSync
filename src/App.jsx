@@ -6,33 +6,29 @@ import './App.css'
 import {easeInOut, motion} from 'motion/react'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState } from 'react'
 
 
 
 function App() {
   const { user } = useAuth();
-  const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 768);
   return (
     <div className="relative text-text dark:bg-darkbg transition-colors duration-300">
-      {/* Sidebar (visible only if logged in) */}
-      {user && (
-        <div className={`${sidebarOpen ? 'fixed' : 'hidden'} top-0 left-0 w-64 h-screen z-50`}>
-          <Sidebar open={sidebarOpen} setOpen={setSidebarOpen}/>
-        </div>
-      )}
+      <div className="md:flex">
+        {user && 
+            <Sidebar />
+         }
+
+        <motion.main
+          className={`h-screen overflow-y-auto px-4 bg-light-bg dark:bg-darkbg flex-1 ${user ? "md:ml-0" : "w-screen"}`}>
+          <Outlet />
+        </motion.main>
+      </div>
 
       <ToastContainer position="bottom-right" autoClose={3000} />
 
       <div className="fixed bottom-5 right-5">
         <ThemeToggle />
       </div>
-
-      {/* Main content */}
-      <motion.main
-        className={`h-screen overflow-y-auto px-4 bg-light-bg dark:bg-darkbg ${user ? "md:ml-64" : "w-screen"}`}>
-        <Outlet />
-      </motion.main>
     </div>
   );
 }

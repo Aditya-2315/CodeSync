@@ -11,10 +11,11 @@ const navItems = [
   {label:'Setting',path:'/setting'},
 ]
 
-const Sidebar = ({open,setOpen}) => {
+const Sidebar = () => {
   const {logout} = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
+  const [open,setOpen] = useState(false)
 
   const handleLogout = async()=>{
     await logout()
