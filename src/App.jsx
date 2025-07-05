@@ -14,9 +14,7 @@ function App() {
   return (
     <div className="relative text-text dark:bg-darkbg transition-colors duration-300">
       {/* Sidebar (visible only if logged in) */}
-      {user && (
-          <Sidebar />
-      )}
+      {user && <Sidebar />}
 
       <ToastContainer position="bottom-right" autoClose={3000} />
 
@@ -26,7 +24,9 @@ function App() {
 
       {/* Main content */}
       <motion.main
-        className={`h-screen overflow-y-auto px-4 bg-light-bg dark:bg-darkbg ${user ? "md:ml-64" : "w-screen"}`}>
+        className={`min-h-screen overflow-y-auto px-4 bg-light-bg dark:bg-darkbg transition-all duration-300 ${
+          user ? "md:ml-64" : ""
+        }`}>
         <Outlet />
       </motion.main>
     </div>
