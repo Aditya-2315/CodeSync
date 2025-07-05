@@ -15,7 +15,7 @@ function App() {
     <div className="relative text-text dark:bg-darkbg transition-colors duration-300">
       {/* Sidebar (visible only if logged in) */}
       {user && (
-        <div className="fixed top-0 left-0 h-screen w-64 z-50">
+        <div className="fixed top-0 left-0 h-screen w-64">
           <Sidebar />
         </div>
       )}
