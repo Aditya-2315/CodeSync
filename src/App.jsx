@@ -12,7 +12,7 @@ import { useState } from 'react'
 
 function App() {
   const { user } = useAuth();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 768);
   return (
     <div className="relative text-text dark:bg-darkbg transition-colors duration-300">
       {/* Sidebar (visible only if logged in) */}
