@@ -6,7 +6,7 @@ import './App.css'
 import {easeInOut, motion} from 'motion/react'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import useStreakUpdater from './hooks/useStreakUpdater';
+import useStreakUpdater from './hooks/useStreakUpdater.js';
 
 
 
