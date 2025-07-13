@@ -6,11 +6,13 @@ import './App.css'
 import {easeInOut, motion} from 'motion/react'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useStreakUpdater from './hooks/useStreakUpdater';
 
 
 
 function App() {
   const { user } = useAuth();
+  useStreakUpdater()
   return (
     <div className="relative text-text dark:bg-darkbg transition-colors duration-300">
       <div className="md:flex">
